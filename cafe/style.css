@@ -551,6 +551,29 @@ body {
     color: var(--cream);
 }
 
+.map-container {
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+}
+
+.map-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+    opacity: 0.9;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.map-container:hover .map-image {
+    opacity: 1;
+    transform: scale(1.02);
+}
+
 .info-card h3 {
     font-family: 'Zen Kaku Gothic New', sans-serif;
     font-size: 1.8rem;
