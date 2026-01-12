@@ -75,11 +75,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const currentScroll = window.pageYOffset;
         
         if (currentScroll > 100) {
-            navbar.style.backgroundColor = 'rgba(139, 69, 19, 0.98)';
-            navbar.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
+            navbar.style.backgroundColor = 'rgba(44, 44, 44, 0.98)';
+            navbar.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.3)';
         } else {
-            navbar.style.backgroundColor = 'rgba(139, 69, 19, 0.95)';
-            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            navbar.style.backgroundColor = 'rgba(44, 44, 44, 0.95)';
+            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.2)';
         }
         
         lastScroll = currentScroll;
