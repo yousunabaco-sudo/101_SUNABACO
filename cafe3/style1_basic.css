@@ -1,0 +1,80 @@
+/* CSSファイル - ここで見た目を指定します */
+
+/* 全体のスタイル */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+
+/* コンテナ（全体を囲む箱） */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* 見出し1のスタイル */
+h1 {
+    color: #333;
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* 紹介文のスタイル */
+.intro {
+    font-size: 1.2em;
+    color: #666;
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #e8f4f8;
+    border-left: 4px solid #4CAF50;
+}
+
+/* ボックスの基本スタイル */
+.box {
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+}
+
+/* 赤いボックス */
+.red-box {
+    background-color: #ff6b6b;
+}
+
+/* 青いボックス */
+.blue-box {
+    background-color: #4ecdc4;
+}
+
+/* 緑のボックス */
+.green-box {
+    background-color: #95e1d3;
+}
+
+/* ボックス内の見出し2 */
+.box h2 {
+    margin-top: 0;
+    font-size: 1.8em;
+}
+
+/* 注意書き */
+.note {
+    text-align: center;
+    font-weight: bold;
+    color: #555;
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #fff3cd;
+    border: 2px dashed #ffc107;
+}
+

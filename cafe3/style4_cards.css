@@ -1,0 +1,178 @@
+/* モダンなカードデザインの例 */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    color: white;
+    margin-bottom: 50px;
+    padding: 30px;
+}
+
+header h1 {
+    font-size: 3em;
+    margin: 0 0 10px 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.subtitle {
+    font-size: 1.2em;
+    opacity: 0.9;
+    margin: 0;
+}
+
+/* メニューグリッド */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+/* メニューカード */
+.menu-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+/* カード画像エリア */
+.card-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.card-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.1));
+}
+
+.coffee {
+    background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
+}
+
+.latte {
+    background: linear-gradient(135deg, #D2B48C 0%, #BC9A6A 100%);
+}
+
+.cappuccino {
+    background: linear-gradient(135deg, #F5DEB3 0%, #DEB887 100%);
+}
+
+.mocha {
+    background: linear-gradient(135deg, #6F4E37 0%, #5C4033 100%);
+}
+
+/* カードコンテンツ */
+.card-content {
+    padding: 25px;
+}
+
+.card-content h2 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 1.8em;
+}
+
+.price {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #667eea;
+    margin: 10px 0;
+}
+
+.description {
+    color: #666;
+    line-height: 1.6;
+    margin: 15px 0;
+    font-size: 0.95em;
+}
+
+/* 注文ボタン */
+.order-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+}
+
+.order-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.order-btn:active {
+    transform: scale(0.98);
+}
+
+/* 説明セクション */
+.explanation {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    margin-top: 40px;
+}
+
+.explanation h3 {
+    color: #333;
+    margin-top: 0;
+    font-size: 1.8em;
+}
+
+.explanation ul {
+    line-height: 2;
+    color: #555;
+}
+
+.explanation li {
+    margin: 10px 0;
+}
+
+/* レスポンシブデザイン（小さな画面用） */
+@media (max-width: 768px) {
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    header h1 {
+        font-size: 2em;
+    }
+    
+    .subtitle {
+        font-size: 1em;
+    }
+}
+

@@ -66,9 +66,35 @@ function initSmoothScroll() {
   });
 }
 
-// ページ読み込み時にスライダーとスムーズスクロールを初期化
+// スクロールアニメーション機能
+function initScrollAnimation() {
+  const fadeElements = document.querySelectorAll('.fade-in');
+  
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // 一度表示されたら監視を停止（パフォーマンス向上）
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  
+  // すべてのfade-in要素を監視
+  fadeElements.forEach(element => {
+    observer.observe(element);
+  });
+}
+
+// ページ読み込み時にスライダーとスムーズスクロール、スクロールアニメーションを初期化
 document.addEventListener('DOMContentLoaded', function() {
   initHeroSlider();
   initSmoothScroll();
+  initScrollAnimation();
 });
 

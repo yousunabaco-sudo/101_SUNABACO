@@ -10,7 +10,10 @@
 
 <header class="header">
   <div class="header-inner">
-    <h1 class="logo">喫茶吉田</h1>
+    <h1 class="logo">
+      <img src="Coffee.svg" alt="">
+      <span>喫茶吉田</span>
+    </h1>
     <nav class="nav">
       <a href="#menu">メニュー</a>
       <a href="#info">店舗情報</a>
@@ -46,9 +49,11 @@
   </div>
 </section>
 
-<section class="master">
+<section class="master fade-in">
   <div class="master-inner">
-    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&q=80" alt="マスターの写真" />
+    <div class="master-image-wrapper">
+      <img src="./master.png" alt="マスターの写真" />
+    </div>
     <div class="master-text">
       <h2>マスターのコメント</h2>
       <p>
@@ -62,53 +67,55 @@
 </section>
 
 <section class="menu" id="menu">
-  <h2 class="section-title">おすすめメニュー</h2>
+  <h2 class="section-title fade-in">おすすめメニュー</h2>
   <div class="menu-grid">
-    <div class="menu-item">
-      <img src="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400&h=300&fit=crop&q=80" alt="コーヒー">
+    <div class="menu-item fade-in">
+      <div class="menu-image-wrapper">
+        <img src="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400&h=300&fit=crop&q=80" alt="コーヒー">
+      </div>
       <p class="menu-name">コーヒー</p>
       <p class="menu-price">¥500</p>
     </div>
-    <div class="menu-item">
-      <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop&q=80" alt="プリン">
-      <p class="menu-name">プリン</p>
-      <p class="menu-price">¥550</p>
+    <div class="menu-item fade-in">
+      <div class="menu-image-wrapper">
+        <img src="https://images.unsplash.com/photo-1589114471223-dec0d8d572c6?q=80&w=400&h=300&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="スコーン">
+      </div>
+      <p class="menu-name">スコーン</p>
+      <p class="menu-price">¥300</p>
     </div>
-    <div class="menu-item">
-      <img src="https://images.unsplash.com/photo-1524351199678-941a58a3df50?w=400&h=300&fit=crop&q=80" alt="チーズケーキ">
-      <p class="menu-name">チーズケーキ</p>
-      <p class="menu-price">¥650</p>
+    <div class="menu-item fade-in">
+      <div class="menu-image-wrapper">
+        <img src="https://images.unsplash.com/photo-1524351199678-941a58a3df50?w=400&h=300&fit=crop&q=80" alt="日替わりケーキ">
+      </div>
+      <p class="menu-name">日替わりケーキ</p>
+      <p class="menu-price">¥500</p>
     </div>
-    <div class="menu-item">
-      <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=400&h=300&fit=crop&q=80" alt="トースト">
-      <p class="menu-name">トースト</p>
-      <p class="menu-price">¥600</p>
-    </div>
-    <div class="menu-item">
-      <img src="https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=400&h=300&fit=crop&q=80" alt="サンドイッチ">
-      <p class="menu-name">サンドイッチ</p>
-      <p class="menu-price">¥800</p>
-    </div>
-    <div class="menu-item">
-      <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=300&fit=crop&q=80" alt="紅茶">
-      <p class="menu-name">紅茶</p>
+    <div class="menu-item fade-in">
+      <div class="menu-image-wrapper">
+        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=300&fit=crop&q=80" alt="カフェラテ">
+      </div>
+      <p class="menu-name">カフェラテ</p>
       <p class="menu-price">¥450</p>
     </div>
-    <div class="menu-item">
-      <img src="https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=400&h=300&fit=crop&q=80" alt="パフェ">
-      <p class="menu-name">パフェ</p>
-      <p class="menu-price">¥750</p>
+    <div class="menu-item fade-in">
+      <div class="menu-image-wrapper">
+        <img src="https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=400&h=300&fit=crop&q=80" alt="サンドイッチ">
+      </div>
+      <p class="menu-name">サンドイッチ</p>
+      <p class="menu-price">¥500</p>
     </div>
-    <div class="menu-item">
-      <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=300&fit=crop&q=80" alt="モンブラン">
-      <p class="menu-name">モンブラン</p>
-      <p class="menu-price">¥700</p>
+    <div class="menu-item fade-in">
+      <div class="menu-image-wrapper">
+        <img src="https://images.unsplash.com/photo-1734671223988-20df071ab200?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="固めのレトロプリン">
+      </div>
+      <p class="menu-name">固めのレトロプリン</p>
+      <p class="menu-price">¥450</p>
     </div>
   </div>
 </section>
 
-<section class="info" id="info">
-  <h2 class="section-title">店舗情報</h2>
+<section class="info fade-in" id="info">
+  <h2 class="section-title fade-in">店舗情報</h2>
   <div class="info-inner">
     <div class="info-text">
       <h3>住所</h3>
