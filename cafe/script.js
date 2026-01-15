@@ -143,11 +143,46 @@ function initHamburgerMenu() {
   }
 }
 
+// ページトップリンク機能
+function initPageTop() {
+  const pageTop = document.querySelector('.page-top');
+  
+  if (!pageTop) return;
+  
+  // ページトップへのスムーズスクロール
+  pageTop.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+  
+  // スクロール位置に応じて表示/非表示
+  function togglePageTop() {
+    const scrollY = window.scrollY || window.pageYOffset;
+    const showThreshold = 300; // 300pxスクロールしたら表示
+    
+    if (scrollY > showThreshold) {
+      pageTop.classList.add('visible');
+    } else {
+      pageTop.classList.remove('visible');
+    }
+  }
+  
+  // スクロールイベント
+  window.addEventListener('scroll', togglePageTop, { passive: true });
+  
+  // 初期状態を確認
+  togglePageTop();
+}
+
 // ページ読み込み時にスライダーとスムーズスクロール、スクロールアニメーションを初期化
 document.addEventListener('DOMContentLoaded', function() {
   initHeroSlider();
   initSmoothScroll();
   initScrollAnimation();
   initHamburgerMenu();
+  initPageTop();
 });
 
