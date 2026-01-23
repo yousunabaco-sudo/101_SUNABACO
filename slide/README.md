@@ -11,8 +11,28 @@
 
 ### 画像の数を変更する場合
 
-1. `index.html` のスライド要素（`<div class="slide fade">`）を追加または削除
+1. `index.html` のスライド要素（`<div class="slide animation-zoom">`）を追加または削除
 2. 画像のURL（`src="..."`）を変更
+
+### アニメーション効果を変更する場合
+
+各スライドに異なるアニメーション効果を適用できます。`index.html` の各スライドの `class` 属性を変更してください：
+
+- `animation-zoom`: ズームイン効果（拡大から通常サイズへ）
+- `animation-slide-left`: 左からスライドイン
+- `animation-slide-right`: 右からスライドイン
+- `animation-slide-up`: 下からスライドイン
+- `animation-slide-down`: 上からスライドイン
+- `animation-rotate`: フェード + 回転効果
+- `animation-zoom-out`: ズームアウト効果（縮小から拡大へ）
+- `animation-fade`: シンプルなフェードイン
+
+例：
+```html
+<div class="slide animation-slide-left">
+    <img src="..." alt="...">
+</div>
+```
 
 ### 自分の画像を使う場合
 

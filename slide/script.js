@@ -8,11 +8,6 @@ const slides = document.querySelectorAll('.slide');
 
 // スライドを切り替える関数
 function showSlide(index) {
-    // すべてのスライドを非表示にする
-    slides.forEach(slide => {
-        slide.classList.remove('active');
-    });
-    
     // インデックスが範囲外の場合は調整
     if (index >= slides.length) {
         currentSlide = 0; // 最初に戻る
@@ -21,8 +16,28 @@ function showSlide(index) {
         currentSlide = slides.length - 1; // 最後に移動
     }
     
-    // 現在のスライドを表示
+    // 現在アクティブなスライドを取得
+    const currentActiveSlide = document.querySelector('.slide.active');
+    
+    // 新しいスライドのz-indexを高く設定（上に重ねる）
+    slides[currentSlide].style.zIndex = '3';
+    
+    // 現在アクティブなスライドをフェードアウト
+    if (currentActiveSlide) {
+        currentActiveSlide.classList.remove('active');
+        // フェードアウト完了後、z-indexを元に戻す
+        setTimeout(() => {
+            currentActiveSlide.style.zIndex = '1';
+        }, 1500); // アニメーション時間と同じ
+    }
+    
+    // 新しいスライドをフェードイン
     slides[currentSlide].classList.add('active');
+    
+    // アニメーション完了後、z-indexを2に設定（次の切り替えのため）
+    setTimeout(() => {
+        slides[currentSlide].style.zIndex = '2';
+    }, 1500);
 }
 
 // 次のスライドに進む関数
@@ -32,8 +47,11 @@ function nextSlide() {
 }
 
 // 最初のスライドを表示
-showSlide(currentSlide);
+if (slides.length > 0) {
+    slides[currentSlide].style.zIndex = '2';
+    slides[currentSlide].classList.add('active');
+}
 
 // 3秒ごとに自動で次のスライドに切り替える
-setInterval(nextSlide, 3000); // 3000ミリ秒 = 3秒
+setInterval(nextSlide, 5000); // 5000ミリ秒 = 5秒
 
