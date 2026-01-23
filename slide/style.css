@@ -1,0 +1,57 @@
+/* ページ全体のスタイル */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* スクロールバーを非表示 */
+}
+
+/* スライドショーコンテナ */
+.slideshow-container {
+    position: relative;
+    width: 100vw; /* 画面幅いっぱい */
+    height: 100vh; /* 画面高さいっぱい */
+    overflow: hidden;
+}
+
+/* 各スライド */
+.slide {
+    display: none; /* 最初は非表示 */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* アクティブなスライドを表示 */
+.slide.active {
+    display: block;
+}
+
+/* フェードイン効果 */
+.slide.fade {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* 画像のスタイル */
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画像を画面いっぱいに表示（アスペクト比を保つ） */
+    display: block;
+}
+
