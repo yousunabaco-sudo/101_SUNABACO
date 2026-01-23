@@ -90,18 +90,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- スキップリンク -->
+    <a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
+    
     <!-- ヘッダー（スクロール追従） -->
-    <header class="header" id="header">
+    <header class="header" id="header" role="banner">
         <div class="header-container">
             <div class="logo">
                 <h1>喫茶 吉田</h1>
             </div>
-            <button class="hamburger" id="hamburger" aria-label="メニュー">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
             </button>
-            <nav class="nav" id="nav">
+            <nav class="nav" id="nav" role="navigation" aria-label="メインナビゲーション">
                 <a href="#hero" class="nav-link">ホーム</a>
                 <a href="#menu" class="nav-link">メニュー</a>
                 <a href="#about" class="nav-link">私たちについて</a>
@@ -109,15 +112,15 @@
                 <a href="#contact" class="nav-link">お問い合わせ</a>
             </nav>
         </div>
-        <div class="nav-overlay" id="navOverlay"></div>
+        <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
     </header>
 
     <!-- ヒーローセクション（全画面スライドショー） -->
-    <section class="hero" id="hero">
-        <div class="hero-slides">
+    <section class="hero" id="hero" aria-label="メインビジュアル">
+        <div class="hero-slides" role="region" aria-label="スライドショー" aria-live="polite">
             <!-- スライド1 -->
-            <div class="hero-slide active">
-                <div class="hero-background" style="background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1920&h=1080&fit=crop');"></div>
+            <div class="hero-slide active" role="group" aria-label="スライド 1 / 3" aria-hidden="false">
+                <div class="hero-background" style="background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1920&h=1080&fit=crop');" aria-hidden="true"></div>
                 <div class="hero-content">
                     <h2 class="hero-title">1974年創業の老舗喫茶</h2>
                     <p class="hero-subtitle">お客様の好みに合わせたオリジナルブレンドコーヒー</p>
@@ -126,8 +129,8 @@
             </div>
 
             <!-- スライド2 -->
-            <div class="hero-slide">
-                <div class="hero-background" style="background-image: url('https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=1920&h=1080&fit=crop');"></div>
+            <div class="hero-slide" role="group" aria-label="スライド 2 / 3" aria-hidden="true">
+                <div class="hero-background" style="background-image: url('https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=1920&h=1080&fit=crop');" aria-hidden="true"></div>
                 <div class="hero-content">
                     <h2 class="hero-title">オーナー吉田のこだわり</h2>
                     <p class="hero-subtitle">お話を聞いて、その人に合った豆を挽いて淹れる</p>
@@ -136,8 +139,8 @@
             </div>
 
             <!-- スライド3 -->
-            <div class="hero-slide">
-                <div class="hero-background" style="background-image: url('https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=1920&h=1080&fit=crop');"></div>
+            <div class="hero-slide" role="group" aria-label="スライド 3 / 3" aria-hidden="true">
+                <div class="hero-background" style="background-image: url('https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=1920&h=1080&fit=crop');" aria-hidden="true"></div>
                 <div class="hero-content">
                     <h2 class="hero-title">レトロな雰囲気で</h2>
                     <p class="hero-subtitle">カウンター6席、テーブル6個の落ち着いた空間</p>
@@ -147,17 +150,19 @@
         </div>
 
         <!-- スライドインジケーター -->
-        <div class="hero-indicators">
-            <span class="indicator active" data-slide="0"></span>
-            <span class="indicator" data-slide="1"></span>
-            <span class="indicator" data-slide="2"></span>
+        <div class="hero-indicators" role="tablist" aria-label="スライドナビゲーション">
+            <button class="indicator active" data-slide="0" role="tab" aria-label="スライド 1 に移動" aria-selected="true" aria-controls="hero-slide-0"></button>
+            <button class="indicator" data-slide="1" role="tab" aria-label="スライド 2 に移動" aria-selected="false" aria-controls="hero-slide-1"></button>
+            <button class="indicator" data-slide="2" role="tab" aria-label="スライド 3 に移動" aria-selected="false" aria-controls="hero-slide-2"></button>
         </div>
     </section>
 
+    <main id="main-content" role="main">
+
     <!-- メニューセクション -->
-    <section class="menu-section" id="menu">
+    <section class="menu-section" id="menu" aria-labelledby="menu-title">
         <div class="container">
-            <h2 class="section-title">メニュー</h2>
+            <h2 class="section-title" id="menu-title">メニュー</h2>
             <div class="menu-grid">
                 <!-- メニュー項目 1 -->
                 <div class="menu-item">
@@ -217,9 +222,9 @@
     </section>
 
     <!-- 私たちについてセクション -->
-    <section class="about-section" id="about">
+    <section class="about-section" id="about" aria-labelledby="about-title">
         <div class="container">
-            <h2 class="section-title">私たちについて</h2>
+            <h2 class="section-title" id="about-title">私たちについて</h2>
             <div class="about-content">
                 <div class="owner-profile">
                     <div class="owner-image">
@@ -263,9 +268,9 @@
     </section>
 
     <!-- アクセスマップセクション -->
-    <section class="access-section" id="access">
+    <section class="access-section" id="access" aria-labelledby="access-title">
         <div class="container">
-            <h2 class="section-title">アクセス</h2>
+            <h2 class="section-title" id="access-title">アクセス</h2>
             <div class="access-content">
                 <div class="access-info">
                     <h3>喫茶 吉田</h3>
@@ -277,42 +282,43 @@
                     </div>
                 </div>
                 <div class="access-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3294.43380929648!2d134.05281979999995!3d34.33943590000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3553eb820bc781d5%3A0x20f2437027e8dc13!2zU1VOQUJBQ0_pq5jmnb4!5e0!3m2!1sja!2sjp!4v1769148227211!5m2!1sja!2sjp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3294.43380929648!2d134.05281979999995!3d34.33943590000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3553eb820bc781d5%3A0x20f2437027e8dc13!2zU1VOQUJBQ0_pq5jmnb4!5e0!3m2!1sja!2sjp!4v1769148227211!5m2!1sja!2sjp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="喫茶 吉田の地図" aria-label="喫茶 吉田の所在地を表示するGoogleマップ"></iframe>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- お問い合わせセクション -->
-    <section class="contact-section" id="contact">
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
         <div class="container">
-            <h2 class="section-title">お問い合わせ</h2>
-            <form class="contact-form" id="contactForm">
+            <h2 class="section-title" id="contact-title">お問い合わせ</h2>
+            <form class="contact-form" id="contactForm" aria-label="お問い合わせフォーム" novalidate>
                 <div class="form-group">
-                    <label for="name">お名前 <span class="required">*</span></label>
-                    <input type="text" id="name" name="name" placeholder="山田 太郎" required>
-                    <span class="error-message" id="nameError"></span>
+                    <label for="name">お名前 <span class="required" aria-label="必須項目">*</span></label>
+                    <input type="text" id="name" name="name" placeholder="山田 太郎" required aria-required="true" aria-describedby="nameError" aria-invalid="false">
+                    <span class="error-message" id="nameError" role="alert" aria-live="polite"></span>
                 </div>
 
                 <div class="form-group">
-                    <label for="email">メールアドレス <span class="required">*</span></label>
-                    <input type="email" id="email" name="email" placeholder="example@email.com" required>
-                    <span class="error-message" id="emailError"></span>
+                    <label for="email">メールアドレス <span class="required" aria-label="必須項目">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="example@email.com" required aria-required="true" aria-describedby="emailError" aria-invalid="false">
+                    <span class="error-message" id="emailError" role="alert" aria-live="polite"></span>
                 </div>
 
                 <div class="form-group">
-                    <label for="message">お問い合わせ内容 <span class="required">*</span></label>
-                    <textarea id="message" name="message" rows="6" placeholder="お問い合わせ内容をご記入ください" required></textarea>
-                    <span class="error-message" id="messageError"></span>
+                    <label for="message">お問い合わせ内容 <span class="required" aria-label="必須項目">*</span></label>
+                    <textarea id="message" name="message" rows="6" placeholder="お問い合わせ内容をご記入ください" required aria-required="true" aria-describedby="messageError" aria-invalid="false"></textarea>
+                    <span class="error-message" id="messageError" role="alert" aria-live="polite"></span>
                 </div>
 
-                <button type="submit" class="submit-button">送信する</button>
+                <button type="submit" class="submit-button" aria-label="お問い合わせフォームを送信">送信する</button>
             </form>
         </div>
     </section>
+    </main>
 
     <!-- フッター -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-bottom">
                 <p>&copy; 2024 喫茶 吉田. All rights reserved.</p>
@@ -322,7 +328,7 @@
 
     <!-- ページトップに戻るボタン -->
     <button class="scroll-top" id="scrollTop" aria-label="ページトップに戻る">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M10 5L15 10L13.59 11.41L10 7.83L6.41 11.41L5 10L10 5Z" fill="currentColor"/>
         </svg>
     </button>

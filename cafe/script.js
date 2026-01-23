@@ -68,9 +68,15 @@ initSmoothScroll();
 // ハンバーガーメニューの開閉
 if (hamburger && nav && navOverlay) {
     hamburger.addEventListener('click', () => {
+        const isActive = nav.classList.contains('active');
         nav.classList.toggle('active');
         hamburger.classList.toggle('active');
         navOverlay.classList.toggle('active');
+        
+        // aria-expandedを更新
+        hamburger.setAttribute('aria-expanded', !isActive);
+        hamburger.setAttribute('aria-label', !isActive ? 'メニューを閉じる' : 'メニューを開く');
+        navOverlay.setAttribute('aria-hidden', isActive);
         
         // メニューが開いているときは背景のスクロールを無効化
         if (nav.classList.contains('active')) {
@@ -95,8 +101,14 @@ const totalSlides = slides.length;
 // スライドを切り替える関数
 function showSlide(index) {
     // 全てのスライドからactiveクラスを削除
-    slides.forEach(slide => slide.classList.remove('active'));
-    indicators.forEach(indicator => indicator.classList.remove('active'));
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        slide.setAttribute('aria-hidden', 'true');
+    });
+    indicators.forEach((indicator, i) => {
+        indicator.classList.remove('active');
+        indicator.setAttribute('aria-selected', 'false');
+    });
     
     // 現在のスライドを設定
     currentSlide = index;
@@ -109,7 +121,9 @@ function showSlide(index) {
     
     // アクティブなスライドを表示
     slides[currentSlide].classList.add('active');
+    slides[currentSlide].setAttribute('aria-hidden', 'false');
     indicators[currentSlide].classList.add('active');
+    indicators[currentSlide].setAttribute('aria-selected', 'true');
 }
 
 // 次のスライドに進む
@@ -146,16 +160,19 @@ function validateName() {
         nameError.textContent = 'お名前を入力してください';
         nameInput.classList.add('error');
         nameInput.classList.remove('success');
+        nameInput.setAttribute('aria-invalid', 'true');
         return false;
     } else if (name.length < 2) {
         nameError.textContent = 'お名前は2文字以上で入力してください';
         nameInput.classList.add('error');
         nameInput.classList.remove('success');
+        nameInput.setAttribute('aria-invalid', 'true');
         return false;
     } else {
         nameError.textContent = '';
         nameInput.classList.remove('error');
         nameInput.classList.add('success');
+        nameInput.setAttribute('aria-invalid', 'false');
         return true;
     }
 }
@@ -167,16 +184,19 @@ function validateEmail() {
         emailError.textContent = 'メールアドレスを入力してください';
         emailInput.classList.add('error');
         emailInput.classList.remove('success');
+        emailInput.setAttribute('aria-invalid', 'true');
         return false;
     } else if (!emailPattern.test(email)) {
         emailError.textContent = '正しいメールアドレスを入力してください';
         emailInput.classList.add('error');
         emailInput.classList.remove('success');
+        emailInput.setAttribute('aria-invalid', 'true');
         return false;
     } else {
         emailError.textContent = '';
         emailInput.classList.remove('error');
         emailInput.classList.add('success');
+        emailInput.setAttribute('aria-invalid', 'false');
         return true;
     }
 }
@@ -187,16 +207,19 @@ function validateMessage() {
         messageError.textContent = 'お問い合わせ内容を入力してください';
         messageInput.classList.add('error');
         messageInput.classList.remove('success');
+        messageInput.setAttribute('aria-invalid', 'true');
         return false;
     } else if (message.length < 10) {
         messageError.textContent = 'お問い合わせ内容は10文字以上で入力してください';
         messageInput.classList.add('error');
         messageInput.classList.remove('success');
+        messageInput.setAttribute('aria-invalid', 'true');
         return false;
     } else {
         messageError.textContent = '';
         messageInput.classList.remove('error');
         messageInput.classList.add('success');
+        messageInput.setAttribute('aria-invalid', 'false');
         return true;
     }
 }
