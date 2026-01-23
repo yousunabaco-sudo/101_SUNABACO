@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>喫茶 吉田</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ヘッダー（スクロール追従） -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>喫茶 吉田</h1>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav" id="nav">
+                <a href="#hero" class="nav-link">ホーム</a>
+                <a href="#menu" class="nav-link">メニュー</a>
+                <a href="#about" class="nav-link">私たちについて</a>
+                <a href="#access" class="nav-link">アクセス</a>
+                <a href="#contact" class="nav-link">お問い合わせ</a>
+            </nav>
+        </div>
+        <div class="nav-overlay" id="navOverlay"></div>
+    </header>
+
+    <!-- ヒーローセクション（全画面スライドショー） -->
+    <section class="hero" id="hero">
+        <div class="hero-slides">
+            <!-- スライド1 -->
+            <div class="hero-slide active">
+                <div class="hero-background" style="background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1920&h=1080&fit=crop');"></div>
+                <div class="hero-content">
+                    <h2 class="hero-title">1974年創業の老舗喫茶</h2>
+                    <p class="hero-subtitle">お客様の好みに合わせたオリジナルブレンドコーヒー</p>
+                    <a href="#menu" class="hero-button">メニューを見る</a>
+                </div>
+            </div>
+
+            <!-- スライド2 -->
+            <div class="hero-slide">
+                <div class="hero-background" style="background-image: url('https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=1920&h=1080&fit=crop');"></div>
+                <div class="hero-content">
+                    <h2 class="hero-title">オーナー吉田のこだわり</h2>
+                    <p class="hero-subtitle">お話を聞いて、その人に合った豆を挽いて淹れる</p>
+                    <a href="#menu" class="hero-button">メニューを見る</a>
+                </div>
+            </div>
+
+            <!-- スライド3 -->
+            <div class="hero-slide">
+                <div class="hero-background" style="background-image: url('https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=1920&h=1080&fit=crop');"></div>
+                <div class="hero-content">
+                    <h2 class="hero-title">レトロな雰囲気で</h2>
+                    <p class="hero-subtitle">カウンター6席、テーブル6個の落ち着いた空間</p>
+                    <a href="#menu" class="hero-button">メニューを見る</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライドインジケーター -->
+        <div class="hero-indicators">
+            <span class="indicator active" data-slide="0"></span>
+            <span class="indicator" data-slide="1"></span>
+            <span class="indicator" data-slide="2"></span>
+        </div>
+    </section>
+
+    <!-- メニューセクション -->
+    <section class="menu-section" id="menu">
+        <div class="container">
+            <h2 class="section-title">メニュー</h2>
+            <div class="menu-grid">
+                <!-- メニュー項目 1 -->
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=300&fit=crop" alt="スコーン">
+                    </div>
+                    <h3 class="menu-name">スコーン</h3>
+                    <p class="menu-price">300円</p>
+                </div>
+
+                <!-- メニュー項目 2 -->
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop" alt="日替わりケーキ">
+                    </div>
+                    <h3 class="menu-name">日替わりケーキ</h3>
+                    <p class="menu-price">500円</p>
+                </div>
+
+                <!-- メニュー項目 3 -->
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400&h=300&fit=crop" alt="コーヒー">
+                    </div>
+                    <h3 class="menu-name">コーヒー</h3>
+                    <p class="menu-price">400円</p>
+                </div>
+
+                <!-- メニュー項目 4 -->
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=300&fit=crop" alt="カフェラテ">
+                    </div>
+                    <h3 class="menu-name">カフェラテ</h3>
+                    <p class="menu-price">450円</p>
+                </div>
+
+                <!-- メニュー項目 5 -->
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=400&h=300&fit=crop" alt="サンドイッチ">
+                    </div>
+                    <h3 class="menu-name">サンドイッチ</h3>
+                    <p class="menu-price">500円</p>
+                </div>
+
+                <!-- メニュー項目 6 -->
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&h=300&fit=crop" alt="固めのレトロプリン">
+                    </div>
+                    <h3 class="menu-name">固めのレトロプリン</h3>
+                    <p class="menu-price">300円</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 私たちについてセクション -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <h2 class="section-title">私たちについて</h2>
+            <div class="about-content">
+                <div class="owner-profile">
+                    <div class="owner-image">
+                        <img src="iris.png" alt="Iris 吉田">
+                    </div>
+                    <div class="owner-info">
+                        <h3 class="owner-name">Iris 吉田</h3>
+                        <p class="owner-description">
+                            実際にお話を聞いて、その人の好みに合った豆を挽いて淹れるオリジナルブレンドコーヒーを提供しています。
+                        </p>
+                        <p class="owner-description">
+                            1974年の創業以来、お客様一人ひとりとの会話を大切にしてきました。コーヒーはただの飲み物ではなく、人と人をつなぐ架け橋だと思っています。お客様の好みやその日の気分に合わせて、最適な一杯をお出しできるよう、日々研究を重ねています。
+                        </p>
+                        <p class="owner-description">
+                            レトロな雰囲気の中で、ゆっくりと時間を過ごしていただける空間を心がけています。カウンターでお話ししながら、あるいはテーブルでゆったりと、それぞれのペースで楽しんでいただければと思います。
+                        </p>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <h4>創業1974年</h4>
+                            <p>50年以上の歴史を持つ老舗喫茶店</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>分煙なし、喫煙可能</h4>
+                            <p>喫煙可能な空間でゆっくりとお過ごしいただけます</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>ペット可（テラスのみ）</h4>
+                            <p>テラス席ではペットと一緒にお楽しみいただけます</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>現金のみ</h4>
+                            <p>現金でのお支払いのみとなっております</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- アクセスマップセクション -->
+    <section class="access-section" id="access">
+        <div class="container">
+            <h2 class="section-title">アクセス</h2>
+            <div class="access-content">
+                <div class="access-info">
+                    <h3>喫茶 吉田</h3>
+                    <p class="access-address">〒760-0031<br>香川県高松市常磐町1-3-1</p>
+                    <div class="access-details">
+                        <p><strong>最寄り駅：</strong>瓦町駅</p>
+                        <p><strong>営業時間：</strong>7:00 - 20:00</p>
+                        <p><strong>定休日：</strong>日曜日</p>
+                    </div>
+                </div>
+                <div class="access-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3294.43380929648!2d134.05281979999995!3d34.33943590000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3553eb820bc781d5%3A0x20f2437027e8dc13!2zU1VOQUJBQ0_pq5jmnb4!5e0!3m2!1sja!2sjp!4v1769148227211!5m2!1sja!2sjp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- お問い合わせセクション -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">お問い合わせ</h2>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">お名前 <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" placeholder="山田 太郎" required>
+                    <span class="error-message" id="nameError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">メールアドレス <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="example@email.com" required>
+                    <span class="error-message" id="emailError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">お問い合わせ内容 <span class="required">*</span></label>
+                    <textarea id="message" name="message" rows="6" placeholder="お問い合わせ内容をご記入ください" required></textarea>
+                    <span class="error-message" id="messageError"></span>
+                </div>
+
+                <button type="submit" class="submit-button">送信する</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 喫茶 吉田. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ページトップに戻るボタン -->
+    <button class="scroll-top" id="scrollTop" aria-label="ページトップに戻る">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 5L15 10L13.59 11.41L10 7.83L6.41 11.41L5 10L10 5Z" fill="currentColor"/>
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
