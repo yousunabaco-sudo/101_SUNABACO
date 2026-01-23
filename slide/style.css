@@ -63,3 +63,50 @@ body {
     transform: scale(1.05);
 }
 
+/* スライドの見出し */
+.slide-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 20px 40px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    letter-spacing: 0.1em;
+}
+
+/* アクティブなスライドの見出しを表示 */
+.slide.active .slide-title {
+    opacity: 1;
+    animation: titleFadeIn 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+}
+
+/* 見出しのフェードインアニメーション */
+@keyframes titleFadeIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) translateY(0);
+    }
+}
+
+/* レスポンシブ対応（スマートフォン用） */
+@media (max-width: 768px) {
+    .slide-title {
+        font-size: 2rem;
+        padding: 15px 30px;
+    }
+}
+

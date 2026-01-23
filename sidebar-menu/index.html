@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サイドバーメニュー</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome アイコン -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- メニューを開くボタン -->
+    <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- オーバーレイ（背景） -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- サイドバーメニュー -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>メニュー</h2>
+            <button class="sidebar-close" id="sidebarClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <!-- アコーディオンメニュー1 -->
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <i class="fas fa-home"></i>
+                    <span>ホーム</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </div>
+                <div class="accordion-content">
+                    <a href="#" class="accordion-link">
+                        <i class="fas fa-user"></i>
+                        <span>マイページ</span>
+                    </a>
+                    <a href="#" class="accordion-link">
+                        <i class="fas fa-cog"></i>
+                        <span>設定</span>
+                    </a>
+                    <a href="#" class="accordion-link">
+                        <i class="fas fa-bell"></i>
+                        <span>通知</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- アコーディオンメニュー2 -->
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>ショッピング</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </div>
+                <div class="accordion-content">
+                    <a href="#" class="accordion-link">
+                        <i class="fas fa-box"></i>
+                        <span>商品一覧</span>
+                    </a>
+                    <a href="#" class="accordion-link">
+                        <i class="fas fa-tags"></i>
+                        <span>カテゴリー</span>
+                    </a>
+                    <a href="#" class="accordion-link">
+                        <i class="fas fa-heart"></i>
+                        <span>お気に入り</span>
+                    </a>
+                    <a href="#" class="accordion-link">
+                        <i class="fas fa-history"></i>
+                        <span>購入履歴</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- アコーディオンメニュー3 -->
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <i class="fas fa-folder"></i>
+                    <span>コンテンツ</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </div>
+                <div class="accordion-content">
+                    <a href="#" class="accordion-link">
+                        <i class="fas fa-image"></i>
+                        <span>ギャラリー</span>
+                    </a>
+                    <a href="#" class="accordion-link">
+                        <i class="fas fa-video"></i>
+                        <span>動画</span>
+                    </a>
+                    <a href="#" class="accordion-link">
+                        <i class="fas fa-file-alt"></i>
+                        <span>ドキュメント</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- アコーディオンメニュー4 -->
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <i class="fas fa-info-circle"></i>
+                    <span>情報</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </div>
+                <div class="accordion-content">
+                    <a href="#" class="accordion-link">
+                        <i class="fas fa-question-circle"></i>
+                        <span>よくある質問</span>
+                    </a>
+                    <a href="#" class="accordion-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>お問い合わせ</span>
+                    </a>
+                    <a href="#" class="accordion-link">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>プライバシーポリシー</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 通常のメニュー項目（アコーディオンなし） -->
+            <a href="#" class="sidebar-link">
+                <i class="fas fa-star"></i>
+                <span>おすすめ</span>
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>ログアウト</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <div class="content-wrapper">
+            
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
