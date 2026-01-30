@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>{% block title %}Blog{% endblock %}</title>
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-800">
+    <header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-sm shadow-sm">
+        <div class="max-w-2xl mx-auto px-4 h-14 flex items-center justify-between">
+            <a href="{{ url_for('index') }}" class="text-lg font-semibold tracking-tight text-slate-900 hover:text-slate-600 transition-colors">
+                Blog
+            </a>
+            <nav class="flex items-center gap-1 sm:gap-2">
+                <a href="{{ url_for('index') }}"
+                   class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors">
+                    投稿一覧
+                </a>
+                {% if session.get('username') %}
+                <a href="{{ url_for('new_post') }}"
+                   class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors">
+                    新規投稿
+                </a>
+                <a href="{{ url_for('logout') }}"
+                   class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors">
+                    ログアウト
+                </a>
+                {% else %}
+                <a href="{{ url_for('login') }}"
+                   class="rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-slate-800 transition-colors">
+                    ログイン
+                </a>
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-2xl mx-auto px-4 py-8 sm:py-10">
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

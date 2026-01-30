@@ -42,15 +42,36 @@ def init_db():
     conn.commit()
     conn.close()
 
+# 1ページあたりの記事数
+PER_PAGE = 4
+
+
 # トップページ
 @app.route('/')
 def index():
-    """投稿一覧をDBから取得して表示"""
-    #init_db()  # 初回のみテーブル作成（本番では起動時に1回だけ実行推奨）
+    """投稿一覧をDBから取得して表示（ページネーション）"""
+    page = request.args.get('page', 1, type=int)
+    if page < 1:
+        page = 1
     conn = get_db()
-    rows = conn.execute('SELECT id, title, body, created_at FROM posts ORDER BY created_at DESC').fetchall()
+    total = conn.execute('SELECT COUNT(*) FROM posts').fetchone()[0]
+    total_pages = max(1, (total + PER_PAGE - 1) // PER_PAGE)
+    page = min(page, total_pages)
+    offset = (page - 1) * PER_PAGE
+    rows = conn.execute(
+        'SELECT id, title, body, created_at FROM posts ORDER BY created_at DESC LIMIT ? OFFSET ?',
+        (PER_PAGE, offset)
+    ).fetchall()
     conn.close()
-    return render_template('list.html', posts=rows)
+    return render_template(
+        'list.html',
+        posts=rows,
+        page=page,
+        total_pages=total_pages,
+        total=total,
+        has_prev=page > 1,
+        has_next=page < total_pages,
+    )
 
 # 投稿詳細
 @app.route('/post/<int:post_id>')
