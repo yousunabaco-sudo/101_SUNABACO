@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+<title>calculator</title>
+</head>
+<body>
+<form method="POST">
+    <input type="text" id="num1" name="num1" value="{{ num1 }}" required>
+    <select name="operator" id="operator">
+        <option value="+" {% if operator == '+' %}selected{% endif %}>+</option>
+        <option value="-" {% if operator == '-' %}selected{% endif %}>-</option>
+        <option value="*" {% if operator == '*' %}selected{% endif %}>*</option>
+        <option value="/" {% if operator == '/' %}selected{% endif %}>/</option>
+    </select>
+    <input type="text" id="num2" name="num2" value="{{ num2 }}" required> = {{ result }}<br>
+    <input type="submit" value="calculate">
+</form>
+</body>
+</html>
