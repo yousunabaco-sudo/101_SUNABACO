@@ -1,8 +1,14 @@
 import sqlite3
-from flask import Flask, request, redirect, url_for, render_template
+from flask import Flask, request, redirect, url_for, render_template, abort
 from flask import session, flash
 
 app = Flask(__name__)
+
+
+@app.errorhandler(404)
+def not_found(e):
+    """404のときは専用テンプレートを表示"""
+    return render_template('404.html'), 404
 
 # SQLiteデータベースのパス（プロジェクト直下に作成）
 DATABASE = 'blog.db'
@@ -54,7 +60,7 @@ def post(post_id):
     row = conn.execute('SELECT id, title, body, created_at FROM posts WHERE id = ?', (post_id,)).fetchone()
     conn.close()
     if row is None:
-        return 'Not Found', 404
+        abort(404)
     return render_template('post.html', post=row)
 
 # 投稿作成時のバリデーション
@@ -107,7 +113,7 @@ def edit_post(post_id):
     row = conn.execute('SELECT id, title, body, created_at FROM posts WHERE id = ?', (post_id,)).fetchone()
     if row is None:
         conn.close()
-        return 'Not Found', 404
+        abort(404)
     if request.method == 'POST':
         title = request.form.get('title', '')
         body = request.form.get('body', '')
@@ -136,7 +142,7 @@ def delete_post(post_id):
     row = conn.execute('SELECT id FROM posts WHERE id = ?', (post_id,)).fetchone()
     if row is None:
         conn.close()
-        return 'Not Found', 404
+        abort(404)
     conn.execute('DELETE FROM posts WHERE id = ?', (post_id,))
     conn.commit()
     conn.close()

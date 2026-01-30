@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>404 - ページが見つかりません</title>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-100 flex items-center justify-center px-4 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(148,163,184,0.15),transparent)]"></div>
+    <div class="max-w-lg w-full text-center relative z-10">
+        <p class="text-[10rem] sm:text-[12rem] font-bold tracking-[-0.04em] text-slate-600/30 select-none leading-none">404</p>
+        <h1 class="text-xl font-medium text-slate-300 mt-2 mb-2 tracking-wide">ページが見つかりません</h1>
+        <p class="text-sm text-slate-500 mb-10">お探しのページは存在しないか、移動した可能性があります。</p>
+        <a href="{{ url_for('index') }}"
+           class="inline-flex items-center rounded-full bg-white/10 px-6 py-3 text-sm font-medium text-white backdrop-blur-sm border border-white/10 hover:bg-white/15 hover:border-white/20 transition-all duration-200">
+            投稿一覧へ戻る
+        </a>
+    </div>
+</body>
+</html>
