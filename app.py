@@ -96,6 +96,54 @@ def new_post():
         return redirect('/')
     return render_template('new_post.html')
 
+
+# 投稿編集
+@app.route('/post/<int:post_id>/edit', methods=['GET', 'POST'])
+def edit_post(post_id):
+    """ログインしていない場合はログインページへリダイレクト"""
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    conn = get_db()
+    row = conn.execute('SELECT id, title, body, created_at FROM posts WHERE id = ?', (post_id,)).fetchone()
+    if row is None:
+        conn.close()
+        return 'Not Found', 404
+    if request.method == 'POST':
+        title = request.form.get('title', '')
+        body = request.form.get('body', '')
+        errors = validate_post_form(title, body)
+        if errors:
+            conn.close()
+            for msg in errors:
+                flash(msg, 'error')
+            return render_template('edit_post.html', post=row, title=title, body=body)
+        conn.execute('UPDATE posts SET title = ?, body = ? WHERE id = ?', (title.strip(), body.strip(), post_id))
+        conn.commit()
+        conn.close()
+        flash('記事を更新しました。')
+        return redirect(url_for('post', post_id=post_id))
+    conn.close()
+    return render_template('edit_post.html', post=row, title=row['title'], body=row['body'] or '')
+
+
+# 投稿削除
+@app.route('/post/<int:post_id>/delete', methods=['POST'])
+def delete_post(post_id):
+    """ログインしていない場合はログインページへリダイレクト"""
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    conn = get_db()
+    row = conn.execute('SELECT id FROM posts WHERE id = ?', (post_id,)).fetchone()
+    if row is None:
+        conn.close()
+        return 'Not Found', 404
+    conn.execute('DELETE FROM posts WHERE id = ?', (post_id,))
+    conn.commit()
+    conn.close()
+    flash('記事を削除しました。')
+    return redirect(url_for('index'))
+
+
 # ログイン
 @app.route('/login', methods=['GET', 'POST'])
 def login():
